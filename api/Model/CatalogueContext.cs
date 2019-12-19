@@ -8,7 +8,7 @@ namespace Catalogue.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(@"Server=psql_bdd;Database=bdd;User Id=psql_bdd;Password=psql_bdd_password;");
+            optionsBuilder.UseNpgsql(@"Server=localhost;Database=bdd;User Id=psql_bdd;Password=psql_bdd_password;");
         }
     }
 }
