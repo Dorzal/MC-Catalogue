@@ -22,17 +22,6 @@ services:
     networks:
       - default
 
-  nginx:
-    image: nginx
-    container_name: nginx
-    restart: 'no'
-    ports:
-      - 8080:80
-    volumes:
-      - ./front/public:/usr/share/nginx/html
-    networks: 
-      - default
-
   postgres:    
     container_name: postgres
     build: .docker/postgres
