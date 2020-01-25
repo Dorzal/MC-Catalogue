@@ -9338,11 +9338,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mazzi\\Documents\\BACKUP\\azzi\\Documents\\CESI\\Fil Rouge\\API\\Catalogue\\Catalogue\\Catalogue.csproj",
+      "projectUniqueName": "C:\\Users\\mazzi\\Documents\\BACKUP\\azzi\\Documents\\CESI\\Fil Rouge\\API T\\Catalogue\\Catalogue\\Catalogue.csproj",
       "projectName": "Catalogue",
-      "projectPath": "C:\\Users\\mazzi\\Documents\\BACKUP\\azzi\\Documents\\CESI\\Fil Rouge\\API\\Catalogue\\Catalogue\\Catalogue.csproj",
+      "projectPath": "C:\\Users\\mazzi\\Documents\\BACKUP\\azzi\\Documents\\CESI\\Fil Rouge\\API T\\Catalogue\\Catalogue\\Catalogue.csproj",
       "packagesPath": "C:\\Users\\mazzi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mazzi\\Documents\\BACKUP\\azzi\\Documents\\CESI\\Fil Rouge\\API\\Catalogue\\Catalogue\\obj\\",
+      "outputPath": "C:\\Users\\mazzi\\Documents\\BACKUP\\azzi\\Documents\\CESI\\Fil Rouge\\API T\\Catalogue\\Catalogue\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -1,5 +1,8 @@
+using Catalogue.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,7 +23,10 @@ namespace Catalogue
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddCors();
+            services.AddEntityFrameworkNpgsql().AddDbContext<CatalogueContext>(opt =>
+            opt.UseNpgsql(Configuration.GetConnectionString("Connexion")));
             services.AddControllers();
             ConfigureSwagger(services);
         }

@@ -1,11 +1,20 @@
-﻿namespace Catalogue.Model
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Catalogue.Model
 {
     public class Article
     {
-        public string Id { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-        public string Prix { get; set; }
-        public string Image { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [ForeignKey("Category")]
+        public int IdCategory { get; set; }
+        public string PhotoUrl { get; set; }
+
+        [ForeignKey("Tag")]
+        public int IdTag { get; set; }
+        public string Status { get; set; }
     }
 }

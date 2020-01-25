@@ -7,57 +7,45 @@ using System.Linq;
 namespace Catalogue.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class CatalogueController : ControllerBase
     {
-        [HttpGet]
-        public List<Article> GetCatalogue()
+        private readonly CatalogueContext _context;
+
+        public CatalogueController(CatalogueContext context)
         {
-            using (CatalogueContext db = new CatalogueContext())
-            {
-                return db.Article
-                    .ToList();
-            }
+            _context = context;
+        }
+
+        [HttpGet]
+        public List<Article> Get()
+        {
+            return _context.Article.ToList();
         }
 
         [HttpPost("{article}", Name = "CreateArticle")]
         public void CreateArticle([FromBody]Article article)
         {
-            using (CatalogueContext db = new CatalogueContext())
-            {
-                if (ModelState.IsValid)
-                {
-                    db.Set<Article>().Add(article);
-                    db.SaveChanges();
-                }
-            }
+            _context.Article.Add(article);
+            _context.SaveChanges();
         }
 
         [HttpPut("{article}", Name = "UpdateArticle")]
-        public void UpdateArticle([FromBody]Article article)
+        public void EditArticle([FromBody]Article article)
         {
-            using (CatalogueContext db = new CatalogueContext())
-            {
-                if (ModelState.IsValid)
-                {
-                    db.Entry(article).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
-            }
+            _context.Entry(article).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         [HttpDelete("{id}", Name = "DeleteArticle")]
-        public void DeleteArticle(string id)
+        public void DeleteArticle(int id)
         {
-            using (CatalogueContext db = new CatalogueContext())
-            {
-                if (ModelState.IsValid)
-                {
-                    db.Remove(db
-                        .Article
-                        .First(c => c.Id == id));
-                    db.SaveChanges();
-                }
-            }
+            Article articleToDelete = _context.Article
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            _context.Article.Remove(articleToDelete);
+            _context.SaveChanges();
         }
     }
 }
