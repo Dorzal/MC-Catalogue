@@ -5,16 +5,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["Catalogue/Catalogue.csproj", "Catalogue/"]
-RUN dotnet restore "Catalogue/Catalogue.csproj"
+COPY ["Catalogue.csproj", ""]
+RUN dotnet restore "./Catalogue.csproj"
 COPY . .
-WORKDIR "/src/Catalogue"
-RUN dotnet build "Catalogue.csproj" -c Release -o /app/build
+WORKDIR "/src/."
+RUN dotnet build "Catalogue.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "Catalogue.csproj" -c Release -o /app/publish
+RUN dotnet publish "Catalogue.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "Catalogue.dll"]
