@@ -23,21 +23,27 @@ namespace Catalogue.Controllers
             return _context.Article.ToList();
         }
 
-        [HttpPost("{article}", Name = "CreateArticle")]
+        [HttpGet("{id}", Name = "GetArticleById")]
+        public Article GetById(int id)
+        {
+            return _context.Article.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        [HttpPost]
         public void CreateArticle([FromBody]Article article)
         {
             _context.Article.Add(article);
             _context.SaveChanges();
         }
 
-        [HttpPut("{article}", Name = "UpdateArticle")]
+        [HttpPut]
         public void EditArticle([FromBody]Article article)
         {
             _context.Entry(article).State = EntityState.Modified;
             _context.SaveChanges();
         }
 
-        [HttpDelete("{id}", Name = "DeleteArticle")]
+        [HttpDelete]
         public void DeleteArticle(int id)
         {
             Article articleToDelete = _context.Article
