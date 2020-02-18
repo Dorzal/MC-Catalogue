@@ -16,5 +16,8 @@ namespace Catalogue.Model
         [ForeignKey("Tag")]
         public int IdTag { get; set; }
         public string Status { get; set; }
+        public float Prix { get; set; }
+        public string Caracteristique { get; set; }
+        public string Detail { get; set; }
     }
 }
