@@ -25,7 +25,7 @@ namespace Catalogue.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("Caracteristique")
+                    b.Property<string>("Characteristic")
                         .HasColumnType("text");
 
                     b.Property<string>("Detail")
@@ -37,10 +37,13 @@ namespace Catalogue.Migrations
                     b.Property<int>("IdTag")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
-                    b.Property<float>("Prix")
+                    b.Property<float>("Price")
                         .HasColumnType("real");
 
                     b.Property<string>("Status")

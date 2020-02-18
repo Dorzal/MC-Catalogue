@@ -1,6 +1,7 @@
 ﻿using Catalogue.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +21,26 @@ namespace Catalogue.Controllers
         [HttpGet]
         public List<Article> Get()
         {
+            //string[] name = { "Paroi de douche à l'italienne", "Paroi de douche fixe", "Paroi de douche latérale", "Paroi de douche avec LED", "Verre de bureau", "Verre pivotant", "Verrière d'intérieur" };
+            //string[] Caract = { "Associé au bois de chêne 400mx600m", "Verre d'intérieur 600mx600m", "Type atelier en aluminium" };
+            //string[] detail = { "Parfait pour l'intérieur, solide et épais", "Verre trempé", "Verre de cristal" };
+            //Random random = new Random();
+
+            for (int i = 0; i <= 100; i++)
+            {
+                //_context.Article.Add(new Article
+                //{
+                //    IdCategory = random.Next(1, 4),
+                //    IdTag = random.Next(1, 5),
+                //    PhotoUrl = "Images/Photo" + i,
+                //    Status = random.Next(1, 4).ToString(),
+                //    Price = random.Next(15, 400),
+                //    Characteristic = Caract[random.Next(0, Caract.Length)],
+                //    Detail = detail[random.Next(0, detail.Length)],
+                //    Name = name[random.Next(0, name.Length)],
+                //});
+                //_context.SaveChanges();
+            }
             return _context.Article.ToList();
         }
 

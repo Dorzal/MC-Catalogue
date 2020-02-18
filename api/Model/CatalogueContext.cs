@@ -7,6 +7,7 @@ namespace Catalogue.Model
         public CatalogueContext(DbContextOptions<CatalogueContext> options) : base(options)
         {
         }
+
         public DbSet<Article> Article { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Tag> Tag { get; set; }

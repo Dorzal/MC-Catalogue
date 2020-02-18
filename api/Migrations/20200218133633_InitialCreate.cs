@@ -17,9 +17,10 @@ namespace Catalogue.Migrations
                     PhotoUrl = table.Column<string>(nullable: true),
                     IdTag = table.Column<int>(nullable: false),
                     Status = table.Column<string>(nullable: true),
-                    Prix = table.Column<float>(nullable: false),
-                    Caracteristique = table.Column<string>(nullable: true),
-                    Detail = table.Column<string>(nullable: true)
+                    Price = table.Column<float>(nullable: false),
+                    Characteristic = table.Column<string>(nullable: true),
+                    Detail = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
