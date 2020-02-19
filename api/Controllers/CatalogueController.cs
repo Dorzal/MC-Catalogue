@@ -44,10 +44,22 @@ namespace Catalogue.Controllers
             return _context.Article.ToList();
         }
 
+        [HttpGet("Category/{idCategory}/Article", Name = "GetArticlesByCategory")]
+        public List<Article> GetArticlesByCategory(int idCategory)
+        {
+            return _context.Article.Where(x => x.IdCategory == idCategory).ToList();
+        }
+
         [HttpGet("{id}", Name = "GetArticleById")]
         public Article GetById(int id)
         {
             return _context.Article.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        [HttpGet("Category", Name = "GetCategory")]
+        public List<Category> GetCategory()
+        {
+            return _context.Category.ToList();
         }
 
         [HttpGet("RandomArticle", Name = "GetFourRandomArticle")]

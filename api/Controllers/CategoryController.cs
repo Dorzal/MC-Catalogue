@@ -29,12 +29,6 @@ namespace Catalogue.Controllers
             return _context.Category.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        [HttpGet("{idCategory}/Article", Name = "GetArticlesByCategory")]
-        public List<Article> GetArticlesByCategory(int idCategory)
-        {
-            return _context.Article.Where(x => x.IdCategory == idCategory).ToList();
-        }
-
         [HttpPost]
         public void CreateCategory([FromBody]Category category)
         {
