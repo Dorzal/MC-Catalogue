@@ -50,6 +50,18 @@ namespace Catalogue.Controllers
             return _context.Article.Where(x => x.Id == id).FirstOrDefault();
         }
 
+        [HttpGet("RandomArticle", Name = "GetFourRandomArticle")]
+        public List<Article> GetFourRandomArticle()
+        {
+            Random rnd = new Random();
+            List<Article> fourRandomArticle = new List<Article>();
+            for (int i = 1; i <= 4; i++)
+            {
+                fourRandomArticle.Add(_context.Article.ToList()[rnd.Next(_context.Article.ToList().Count)]);
+            }
+            return fourRandomArticle;
+        }
+
         [HttpPost]
         public void CreateArticle([FromBody]Article article)
         {
