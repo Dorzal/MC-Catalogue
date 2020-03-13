@@ -119,7 +119,7 @@ namespace Catalogue.Controllers
             return (int)Math.Ceiling((double)_context.Article.ToList().Count() / 10);
         }
 
-        [HttpGet("{id}/article", Name = "GetArticleByCategory")]
+        [HttpGet("category/{id}/article", Name = "GetArticleByCategory")]
         public List<Article> GetArticleByCategory(int id)
         {
             return _context.Article.Where(x => x.IdCategory == id).ToList();
