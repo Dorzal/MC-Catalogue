@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Catalogue.Controllers
 {
@@ -20,7 +19,7 @@ namespace Catalogue.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Article>>> GetPost(string page)
+        public List<Article> GetPost()
         {
             //string[] name = {
             //    "Panneau verre occultant",
@@ -103,14 +102,16 @@ namespace Catalogue.Controllers
             //}
             //return articles.Skip(index).Take(10).ToList();
 
-            if (string.IsNullOrEmpty(page))
-            {
-                return await _context.Set<Article>().Skip(0).Take(10).ToListAsync();
-            }
-            else
-            {
-                return await _context.Set<Article>().Skip(int.Parse(page) * 10).Take(10).ToListAsync();
-            }
+            //if (string.IsNullOrEmpty(page))
+            //{
+            //    return await _context.Set<Article>().Skip(0).Take(10).ToListAsync();
+            //}
+            //else
+            //{
+            //    return await _context.Set<Article>().Skip(int.Parse(page) * 10).Take(10).ToListAsync();
+            //}
+
+            return _context.Article.ToList();
         }
 
         [HttpGet("NombrePage", Name = "GetNombrePage")]
